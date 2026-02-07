@@ -4,9 +4,11 @@ If you already have a dotfiles repo using `chezmoi` on GitHub at
 https://github.com/$GITHUB_USERNAME/dotfiles then you can install `chezmoi`
 and your dotfiles with the single command (e.g. on Debian):
 
-```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
-```
+    $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+
+Later on to apply changes just run:
+
+    $ chezmoi update -v
 
 ### Add files locally
 
