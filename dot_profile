@@ -71,7 +71,7 @@ unset git_prompt
 # Prompt with git branch names #
 PS1_user="\[$IBlack\]\u\[$Off\]"
 PS1_at="\[$White\]@\[$Off\]"
-PS1_host="\[$IBlack\]life\[$Off\]"
+PS1_host="\[$IBlack\]\h\[$Off\]"
 PS1_dir="\[$Yellow\]\W\[$Off\]"
 PS1_branch='$(__git_ps1 " (%s)")'
 PS1_branch="\[$BRed\]${PS1_branch}\[$Off\]"
