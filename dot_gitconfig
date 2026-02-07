@@ -1,0 +1,18 @@
+[user]
+    name = Lucas Sinclair
+    email = 649288+xapple@users.noreply.github.com
+[color]
+    branch = auto
+    status = auto
+    diff = auto
+[core]
+    ignorecase = false
+[push]
+    default = matching
+[alias]
+    s = status
+    cam = commit -am
+    co = checkout
+    ls = branch -a
+    d = diff
+    wdiff = diff --color-words
