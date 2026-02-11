@@ -83,3 +83,8 @@ fi
 
 # The prompt #
 export PS1="$PS1_user$PS1_at$PS1_host $PS1_dir$PS1_branch $ "
+
+################################# ITERM2 ######################################
+[ -e "$HOME/.iterm2_shell_integration.bash" ] && source "$HOME/.iterm2_shell_integration.bash"
+EOF
+fi
