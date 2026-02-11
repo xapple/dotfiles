@@ -1,57 +1,34 @@
-################################# BASIC #######################################
-# Locale #
-export LANGUAGE="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+################################# INTERACTIVE GUARD ############################
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
 
-# Special LS colors #
+################################# BASIC #######################################
+# Special LS colors
 export LS_COLORS="rs=0:di=103;30:ln=0;35:mh=00:pi=40;33:\
 so=01;36:do=01;35:bd=40;33;01:cd=40;33;01:\
 or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:\
 ca=30;41:tw=30;42:ow=34;42:st=37;44"
 
-# List all alias #
-alias ll="ls -Alvh --si --group-directories-first --color=always"
-
-# Aliases #
+# Aliases
+alias ll="ls -Alvh --si --group-directories-first --color=auto"
 alias i="ipython"
 
-# GIT #
-export GIT_EDITOR="vim"
-
-# History length #
-export HISTSIZE=""
-
-# Don't put duplicate lines or lines starting with space in the history #
-export HISTCONTROL=ignoreboth
-
-# Append to the history file, don't overwrite it #
+# History behavior
+HISTSIZE=5000
+HISTCONTROL=ignoreboth
 shopt -s histappend
-
-# Check the window size after each command and, if necessary,
-# Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Bash colors #
-source ~/.bash_colors
+# Bash colors
+[ -f "$HOME/.bash_colors" ] && source "$HOME/.bash_colors"
 
-# Less colors #
+# Less colors
 export LESS="-R -m"
 
-# Time zone #
-export TZ="Europe/Brussels"
-
-# Set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-# Set PATH so it includes user's private local bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
-
-# Enable programmable completion features
+################################# COMPLETION ##################################
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -61,14 +38,14 @@ if ! shopt -oq posix; then
 fi
 
 ################################# PROMPT ######################################
-# This guarantees __git_ps1 exists before we render PS1
+# Load git prompt if available
 git_prompt=/usr/lib/git-core/git-sh-prompt
 if ! type __git_ps1 &>/dev/null && [ -f "$git_prompt" ]; then
   . "$git_prompt"
 fi
 unset git_prompt
 
-# Prompt with git branch names #
+# Prompt components
 PS1_user="\[$IBlack\]\u\[$Off\]"
 PS1_at="\[$White\]@\[$Off\]"
 PS1_host="\[$IBlack\]\h\[$Off\]"
@@ -81,8 +58,9 @@ if [[ $TERM == screen* ]]; then
     PS1_at="\[$Red\]@\[$Off\]"
 fi
 
-# The prompt #
-export PS1="$PS1_user$PS1_at$PS1_host $PS1_dir$PS1_branch $ "
+# Final prompt
+PS1="$PS1_user$PS1_at$PS1_host $PS1_dir$PS1_branch $ "
 
 ################################# ITERM2 ######################################
-[ -e "$HOME/.iterm2_shell_integration.bash" ] && source "$HOME/.iterm2_shell_integration.bash"
+[ -e "$HOME/.iterm2_shell_integration.bash" ] && \
+  source "$HOME/.iterm2_shell_integration.bash"

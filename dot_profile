@@ -1,3 +1,22 @@
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+################################# ENVIRONMENT #################################
+# Locale
+export LANGUAGE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# Editors
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+
+# Time zone
+export TZ="Europe/Brussels"
+
+# PATH additions
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+export PATH
+
+################################# LOAD BASHRC #################################
+# If running bash, load .bashrc
+if [ -n "$BASH_VERSION" ]; then
+    [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 fi
