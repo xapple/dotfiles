@@ -12,7 +12,7 @@ Later on to apply changes just run:
 
 ### Add files locally
 
-If you want to add files to your dotfiles repo without changing your local environement (e.g. on macOS) then you can do so with the following commands:
+If you want to add files to your dotfiles repo without changing your local environment (e.g., macOS), then you can do so with the following commands:
 
 ```sh
 # Go to the local clone.
