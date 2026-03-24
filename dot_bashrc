@@ -62,5 +62,6 @@ fi
 PS1="$PS1_user$PS1_at$PS1_host $PS1_dir$PS1_branch $ "
 
 ################################# ITERM2 ######################################
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 [ -e "$HOME/.iterm2_shell_integration.bash" ] && \
   source "$HOME/.iterm2_shell_integration.bash"
