@@ -28,6 +28,9 @@ shopt -s checkwinsize
 # Less colors
 export LESS="-R -m"
 
+################################# GOODIES #####################################
+alias restart='systemd-run --on-active=10s --unit=reboot-in-10s systemctl reboot'
+
 ################################# COMPLETION ##################################
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
